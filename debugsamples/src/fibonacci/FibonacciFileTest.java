@@ -3,7 +3,6 @@ package fibonacci;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class FibonacciFileTest {
 	public static long fibonacci(int n) {
@@ -13,27 +12,18 @@ public class FibonacciFileTest {
 			return fibonacci(n-1)+fibonacci(n-2);
 	}
 
-	public static void main(String[] args) {
-		Integer input;
-		Integer n=0;
-		final String fileName="src\\fibonacci\\input.txt";
+	private static String readFileAndReturnFirstLine(String fileName) {
 		BufferedReader br=null;
 		FileReader fr=null;
-		String number=new String();
-
+		String sCurrentLine=new String();
 		try {
-			System.out.println("Working Directory = " +
-		              System.getProperty("user.dir"));
+			System.out.println("Working Directory = "+System.getProperty("user.dir"));
 			fr=new FileReader(fileName);
 			br=new BufferedReader(fr);
 
-			String sCurrentLine;
-
 			br=new BufferedReader(new FileReader(fileName));
 
-			while ((sCurrentLine=br.readLine())!=null) {
-				number=sCurrentLine;
-			}
+			sCurrentLine=br.readLine();
 
 		} catch (IOException e) {
 
@@ -55,8 +45,16 @@ public class FibonacciFileTest {
 
 			}
 		}
-		input=Integer.parseInt(number);
-		for (int i=1; i<=input; i++)
+		return sCurrentLine;
+	}
+
+	public static void main(String[] args) {
+		Integer extent;
+		final String fileName="src\\fibonacci\\input.txt";
+		String number=new String();
+		number=readFileAndReturnFirstLine(fileName); // file contains extent of execution
+		extent=Integer.parseInt(number);
+		for (int i=1; i<=extent; i++)
 			// comments
 			System.out.println(i+": "+fibonacci(i));
 	}

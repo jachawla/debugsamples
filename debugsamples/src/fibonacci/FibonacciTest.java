@@ -1,15 +1,30 @@
 package fibonacci;
 
-public class FibonacciTest {
-    public static long fibonacci(int n) {
-        if (n <= 1) return n;
-        else return fibonacci(n-1) + fibonacci(n-2);
-    }
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-    public static void main(String[] args) {
-        int n = Integer.parseInt(args[0]);
-        for (int i = 1; i <= n; i++)
-            System.out.println(i + ": " + fibonacci(i));
-    }
+public class FibonacciTest {
+	public static long fibonacci(int n) {
+		if (n<=1)
+			return n;
+		else
+			return fibonacci(n-1)+fibonacci(n-2);
+	}
+
+	public static void main(String[] args) {
+		String input=new String();
+		Integer n=0;
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		try {
+			System.out.println("How far should the series extend:");
+			input=br.readLine();
+			n=Integer.parseInt(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		for (int i=1; i<=n; i++)
+			System.out.println(i+": "+fibonacci(i));
+	}
 
 }

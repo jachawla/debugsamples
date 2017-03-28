@@ -16,7 +16,7 @@ public class FibonacciFileTest {
 	public static void main(String[] args) {
 		Integer input;
 		Integer n=0;
-		final String fileName="input.txt";
+		final String fileName="src\\fibonacci\\input.txt";
 		BufferedReader br=null;
 		FileReader fr=null;
 		String number=new String();
@@ -56,7 +56,7 @@ public class FibonacciFileTest {
 			}
 		}
 		input=Integer.parseInt(number);
-		for (int i=1; i<=n; i++)
+		for (int i=1; i<=input; i++)
 			// comments
 			System.out.println(i+": "+fibonacci(i));
 	}

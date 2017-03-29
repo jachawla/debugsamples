@@ -9,7 +9,7 @@ public class FibonacciTest {
 		if (n<=1)
 			return n;
 		else
-			return fibonacci(n-1)+fibonacci(n-2);
+			return fibonacci(n-1)+fibonacci(n-1);
 	}
 
 	public static void main(String[] args) {
